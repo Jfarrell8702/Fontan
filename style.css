@@ -1,0 +1,221 @@
+body {
+  background-image: linear-gradient(to bottom, black, hotpink);
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+}
+
+.TITLE {
+  font-size: 70px;
+  text-align: center;
+
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.center2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10%;
+  height: 40%;
+}
+
+.navbar ul {
+  list-style: none;
+
+}
+
+.navbar li {
+  display: inline;
+  margin: 1%;
+}
+
+
+#hearthome {
+  width: 50px;
+  height: 50px;
+}
+
+iframe {
+  display: block;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+.stat {
+  display: block;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+.vid {
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-size: 50px;
+  margin: 1%;
+
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 1000,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.HPBody {
+  display: inline;
+  text-align: center;
+
+}
+
+.HomeIcon {
+  float: inline-start;
+  padding: 1%;
+  display: inline;
+}
+
+.NavIcon {
+  float: inline-end;
+  display: inline;
+  padding: 0.25%;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+header {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+.heart-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #ff0000;
+  /* Red color for heart */
+  position: relative;
+  transform: rotate(-45deg);
+  animation: heartAnimation 2s infinite;
+  display: inline-block;
+}
+
+.heart-icon::before,
+.heart-icon::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #ff0000;
+  border-radius: 70%;
+  position: absolute;
+}
+
+
+.heart-icon::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart-icon::after {
+  top: 0;
+  left: 10px;
+}
+
+@keyframes heartAnimation {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.navbar li {
+  display: inline;
+  text-align: right;
+}
+
+
+.navbar a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  font-size: 25px;
+}
+
+header {
+  background-color: transparent;
+  box-align: center;
+}
+
+html,
+body {
+  overflow: auto;
+}
+
+.title-overlay {
+  font-size: 5vw;
+  color: white;
+  text-shadow: 2px 2px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  *padding: 10px 20px;
+  text-align: center;
+}
+
+.subtitle-overlay {
+  font-size: 2vw;
+  color: white;
+  text-shadow: 2px 2px black;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.index-header img {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
