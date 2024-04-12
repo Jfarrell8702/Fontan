@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to bottom, black, hotpink);
+  background-image: linear-gradient(to bottom, darkred, black);
 
 }
 
@@ -9,6 +9,35 @@ ul {
   padding: 0;
   font-size: 25px;
 }
+
+.navbar nav ul {
+  display: flex;
+  /* Use flexbox for the parent container */
+  justify-content: space-between;
+  /* Spreads out the children elements */
+  list-style-type: none;
+  /* Removes bullet points from the list */
+  padding: 0;
+  /* Removes default padding */
+}
+
+.navbar nav ul .HomeIcon {
+  margin-right: auto;
+  /* Pushes all other elements to the right */
+}
+
+.NavIcon a,
+.HomeIcon a {
+  display: block;
+  /* Makes links fill the li for better click area */
+  padding: 10px;
+  /* Adds padding for better appearance */
+  text-decoration: none;
+  /* Removes underline from links */
+  color: black;
+  /* Sets the text color */
+}
+
 
 .TITLE {
   font-size: 70px;
@@ -101,7 +130,8 @@ html {
 
 header {
   background-color: #333;
-  padding: 10px;
+  padding: 1px;
+  
 }
 
 nav ul {
@@ -218,4 +248,51 @@ body {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+/*---  */
+
+.navbar {
+    position: relative;
+    background-color: black; /* Change as needed */
+    padding: 10px 20px;
+    height: 80px; /* Adjust height as necessary */
+    overflow: hidden;
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    height: 100%; /* Uses full height of the navbar */
+    position: relative;
+    z-index: 2; /* Ensures nav items are above the EKG line */
+}
+
+.navbar nav ul li {
+    margin-right: 20px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: red; /* Change as needed */
+    font-size: 30px; /* Adjust font size as necessary */
+}
+
+.ekg-line {
+    position: absolute;
+    top: 0; /* Adjusted to top for full height */
+    left: 0;
+    width: 300%; /* Triple width for a smooth scrolling effect */
+    height: 100%; /* Adjusted to 100% for full navbar height */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="80" viewBox="0 0 1200 80"><path d="M0 40 L150 40 L175 5 L200 75 L225 40 L350 40 L375 5 L400 75 L425 40 L550 40 L575 20 L600 60 L625 40 L750 40 L775 5 L800 75 L825 40 L950 40 L975 5 L1000 75 L1025 40 L1200 40" stroke="red" fill="none" stroke-width="2"/></svg>');
+    background-repeat: repeat-x;
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% { background-position: -100%; }
+    100% { background-position: 100%; }
 }
