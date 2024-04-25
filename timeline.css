@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 :root {
   --white: #fff;
@@ -20,7 +19,7 @@
   box-sizing: border-box;
 }
 
-p{
+p {
   font-size: 1em;
   color: white;
 }
@@ -32,17 +31,12 @@ button {
   outline: none;
 }
 
-a {
-  color: inherit;
-}
-
 img {
   max-width: 100%;
 }
 
 body {
-  font: normal 16px/1.5 "Inter", sans-serif;
-  background-image: linear-gradient(to bottom, darkred, red, white);
+  background-image: linear-gradient(to bottom, black, darkred);
   color: var(--black);
   margin-bottom: 50px;
 }
@@ -67,12 +61,13 @@ body {
   padding: 10px;
   color: white;
   text-decoration: underline;
+
 }
 
 .section h1 {
   font-size: 2.5rem;
   line-height: 1.25;
-  color: white;
+  color: green;
   text-shadow: 2px 2px black;
 }
 
@@ -89,7 +84,7 @@ body {
   max-width: 80%;
   max-height: 80%;
   height: 60%;
-  padding: 0 20px;
+  padding-top: 5%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 400px auto;
@@ -115,14 +110,42 @@ body {
 }
 
 .timeline .info {
+  position: relative;
+  /* Needed for absolute positioning of the pseudo-element */
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 30px 50px;
-  color: var(--white);
-  background: linear-gradient(darkred, white);
+  color: black;
+  /* Remove background-image from here */
+  background-position: center;
+  /* This can stay but it’s better to move it to the pseudo-element */
   white-space: normal;
   border-radius: 30px;
+  border: darkred 1px solid;
+}
+
+.timeline .info::before {
+  content: "";
+  /* Required for pseudo-elements */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("Assets/hrt.png");
+  /* Move background image here */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Prevents the background from repeating */
+  opacity: 0.5;
+  /* Set the opacity of the image */
+  border-radius: inherit;
+  /* Inherits the border-radius from the parent */
+  pointer-events: none;
+  /* Makes the pseudo-element non-interactive */
+  z-index: -1;
+  /* Ensures it stays behind the content */
 }
 
 .timeline .info img {
@@ -130,8 +153,11 @@ body {
 }
 
 .timeline .info p {
-  margin-top: 10px;
-  color: var(--crystal);
+  margin-top: 30px;
+  color: white;
+  font-weight: bolder;
+  padding: 15%;
+  text-align: center;
 }
 
 .timeline .info a {
@@ -148,12 +174,21 @@ body {
 }
 
 .timeline ol::-webkit-scrollbar-thumb {
-  background: red;
+  background: darkred;
+  border: solid black 1px;
 }
 
 .timeline ol::-webkit-scrollbar-track {
-  background: white;
+  background: black;
+  border: solid black 2px;
 }
+
+/* Changes the thumb color on hover */
+.timeline ol::-webkit-scrollbar-thumb:hover {
+  background: white;
+  /* darker grey for the thumb on hover */
+}
+
 
 .timeline ol {
   font-size: 0;
@@ -161,21 +196,21 @@ body {
   transition: all 1s;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  scrollbar-color: orange;
+  scrollbar-color: black;
 }
 
 .timeline ol li {
   position: relative;
   display: inline-block;
   list-style-type: none;
-  width: 160px;
+  width: 150px;
   height: 5px;
   background: var(--white);
   scroll-snap-align: start;
 }
 
 .timeline ol li:last-child {
-  width: 340px;
+  width: 150px;
 }
 
 .timeline ol li:not(:first-child) {
@@ -192,7 +227,23 @@ body {
   height: 12px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: var(--pink);
+  background: red;
+  border: 2px solid white;
+  z-index: 1;
+}
+
+.timeline ol li:last-child::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: red;
+  border: 2px solid white;
   z-index: 1;
 }
 
@@ -200,13 +251,14 @@ body {
   position: absolute;
   left: calc(100% + 7px);
   width: 280px;
-  padding: 15px;
-  font-size: 1rem;
+  padding: 5%;
+  font-size: 1.15rem;
   white-space: normal;
   color: var(--black);
   background: var(--white);
   border-radius: 0 10px 10px 10px;
 }
+
 
 .timeline ol li div::before {
   content: "";
@@ -215,7 +267,12 @@ body {
   left: 0;
   width: 0;
   height: 0;
+  padding: .25%;
   border-style: solid;
+}
+
+.timeline ol li:firstchild::before {
+  left: 100%;
 }
 
 .timeline ol li:nth-child(odd) div {
@@ -242,10 +299,10 @@ body {
 
 .timeline time {
   display: block;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: bolder;
   margin-bottom: 8px;
-  color: red;
+  color: darkred;
 }
 
 /* GENERAL MEDIA QUERIES
@@ -269,7 +326,67 @@ body {
   }
 }
 
+::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0);
+}
+
 html,
 body {
   overflow: auto;
+}
+
+.tlh2 {
+  color: white;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  font-size: 70px;
+}
+
+p {
+  position: relative;
+  top: 8%;
+  /* Moves the element up by 8% of its containing block */
+  font-size: 1.6rem;
+  -webkit-text-stroke-width: 1px;
+  color: black;
+  -webkit-text-stroke-color: black;
+}
+
+.timeline ol li.star::after {
+  width: 27px;
+  height: 27px;
+  left: 95.5%;
+  background-color: gold;
+  /* Adjust color as needed */
+  clip-path: polygon(50% 0%,
+      /* Top point */
+      61% 35%,
+      /* Right upper middle */
+      100% 38%,
+      /* Right corner */
+      69% 59%,
+      /* Right lower middle */
+      79% 91%,
+      /* Bottom right */
+      50% 75%,
+      /* Bottom middle */
+      21% 91%,
+      /* Bottom left */
+      31% 59%,
+      /* Left lower middle */
+      0% 38%,
+      /* Left corner */
+      39% 35%
+      /* Left upper middle */
+    );
+}
+
+.nametag {
+  margin-top: 50px;
+  /* Adjust value as needed */
+  position: relative;
+  /* or 'absolute' if it fits your layout better */
+  top: 7%;
+  /* Adjust value as needed */
 }

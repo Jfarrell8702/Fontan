@@ -2,10 +2,42 @@
   color: white;
 }
 
-h1 {
-  text-align: center;
-  font-size: 3.5em;
-  font-weight: bold;
-  text-decoration: underline;
+h2 {
+  padding: 2%;
 }
 
+h2.brief {
+  font-size: 1.6rem;
+  color: white;
+  padding:2%;
+}
+
+h3 {
+  font-size: 25px;
+  color: white;
+  padding-bottom: 2%;
+  padding-top: 1.25%;
+  /* Reset any padding if inherited */
+  margin: 0;
+  /* Ensure no additional space unless desired */
+  text-align: center;
+  /* Ensures alignment is centered */
+}
+
+.sim {
+  border: darkred solid 1px;
+}
+
+.video-container {
+  display: flex;        /* Enables Flexbox */
+  flex-wrap: wrap;      /* Allows items to wrap onto the next line as needed */
+  justify-content: space-evenly; /* Distributes space evenly between children */
+  align-items: center;  /* Vertically centers the items in the container */
+  padding-bottom: 2%;
+}
+
+.video-container > div {
+  flex: 1;              /* Each child will grow to distribute space */
+  margin: 10px;         /* Optional: Adds some space around each video */
+  
+}

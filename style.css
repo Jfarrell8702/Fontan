@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to bottom, darkred, black);
+  background-image: linear-gradient(to bottom, black, white);
 
 }
 
@@ -13,7 +13,6 @@ ul {
 .navbar nav ul {
   display: flex;
   /* Use flexbox for the parent container */
-  justify-content: space-between;
   /* Spreads out the children elements */
   list-style-type: none;
   /* Removes bullet points from the list */
@@ -21,9 +20,8 @@ ul {
   /* Removes default padding */
 }
 
-.navbar nav ul .HomeIcon {
-  margin-right: auto;
-  /* Pushes all other elements to the right */
+.navbar nav ul li {
+  margin-right: 5px; /* Adjust based on your design needs */
 }
 
 .NavIcon a,
@@ -128,11 +126,6 @@ html {
   overflow: hidden;
 }
 
-header {
-  background-color: #333;
-  padding: 1px;
-  
-}
 
 nav ul {
   list-style: none;
@@ -148,12 +141,23 @@ nav li {
 .heart-icon {
   width: 20px;
   height: 20px;
-  background-color: #ff0000;
+  background-color: red;
   /* Red color for heart */
   position: relative;
   transform: rotate(-45deg);
   animation: heartAnimation 2s infinite;
-  display: inline-block;
+  display: block;
+}
+
+.heart-icon:hover {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  /* Red color for heart */
+  position: relative;
+  transform: rotate(-45deg);
+  animation: heartAnimation 2s infinite;
+  display: block;
 }
 
 .heart-icon::before,
@@ -161,11 +165,21 @@ nav li {
   content: "";
   width: 20px;
   height: 20px;
-  background-color: #ff0000;
+  background-color: red;
   border-radius: 70%;
   position: absolute;
 }
 
+
+.heart-icon:hover::before,
+.heart-icon:hover::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 70%;
+  position: absolute;
+}
 
 .heart-icon::before {
   top: -10px;
@@ -175,6 +189,14 @@ nav li {
 .heart-icon::after {
   top: 0;
   left: 10px;
+}
+
+.navbar a.active .heart-icon::after {
+  color: red;
+}
+
+.navbar a .heart-icon::after {
+  color: white;
 }
 
 @keyframes heartAnimation {
@@ -202,7 +224,7 @@ nav li {
 }
 
 ul {
-  font-size: 25px;
+  font-size: 30px;
 }
 
 header {
@@ -252,47 +274,284 @@ body {
 
 /*---  */
 
-.navbar {
-    position: relative;
-    background-color: black; /* Change as needed */
-    padding: 10px 20px;
-    height: 80px; /* Adjust height as necessary */
-    overflow: hidden;
+body .navbar {
+  position: relative;
+  background-color: transparent; /* Change as needed */
+  padding-top: -5px;
+  padding-bottom: 5px;
+  height: 80px; /* Adjust height as necessary */
+  overflow: hidden;
 }
 
-.navbar nav ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    height: 100%; /* Uses full height of the navbar */
-    position: relative;
-    z-index: 2; /* Ensures nav items are above the EKG line */
+body .navbar nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  height: 100%; /* Uses full height of the navbar */
+  position: relative;
+  z-index: 2; /* Ensures nav items are above the EKG line */
+  display: block;
 }
 
-.navbar nav ul li {
-    margin-right: 20px;
+body .navbar nav ul li {
+  margin-right: 2px;
 }
 
-.navbar nav ul li a {
-    text-decoration: none;
-    color: red; /* Change as needed */
-    font-size: 30px; /* Adjust font size as necessary */
+body .navbar nav ul li a {
+  text-decoration: none;
+  color: white; /* Change as needed */
+  font-size: 1.5rem; /* Adjust font size as necessary */
 }
+
+body .navbar nav ul li a:hover {
+  color: red;
+}
+
+body .navbar nav ul li a:active {
+  color: white;
+}
+
+/* Highlight active navbar link */
+body .navbar a.active {
+  color: red; /* Active link color */
+  font-weight: bold;
+  font-size: 30px;
+}
+
 
 .ekg-line {
-    position: absolute;
-    top: 0; /* Adjusted to top for full height */
-    left: 0;
-    width: 300%; /* Triple width for a smooth scrolling effect */
-    height: 100%; /* Adjusted to 100% for full navbar height */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="80" viewBox="0 0 1200 80"><path d="M0 40 L150 40 L175 5 L200 75 L225 40 L350 40 L375 5 L400 75 L425 40 L550 40 L575 20 L600 60 L625 40 L750 40 L775 5 L800 75 L825 40 L950 40 L975 5 L1000 75 L1025 40 L1200 40" stroke="red" fill="none" stroke-width="2"/></svg>');
-    background-repeat: repeat-x;
-    animation: slide 20s linear infinite;
+  position: absolute;
+  top: 0;
+  /* Adjusted to top for full height */
+  left: 0;
+  width: 300%;
+  /* Triple width for a smooth scrolling effect */
+  height: 100%;
+  /* Adjusted to 100% for full navbar height */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="80" viewBox="0 0 1200 80"><path d="M0 40 L150 40 L175 5 L200 75 L225 40 L350 40 L375 5 L400 75 L425 40 L550 40 L575 20 L600 60 L625 40 L750 40 L775 5 L800 75 L825 40 L950 40 L975 5 L1000 75 L1025 40 L1200 40" stroke="red" fill="none" stroke-width="2"/></svg>');
+  background-repeat: repeat-x;
+  animation: slide 90s linear infinite;
 }
 
 @keyframes slide {
-    0% { background-position: -100%; }
-    100% { background-position: 100%; }
+  0% {
+    background-position: -100%;
+  }
+
+  100% {
+    background-position: 100%;
+  }
+}
+
+/*  */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  background-image: url("Assets/pixel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animate 45s linear infinite;
+  min-height: 100vh;
+  /* Allows the body to expand as needed */
+  overflow-x: hidden;
+  /* Hide horizontal scroll */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  /* Stack children vertically */
+  justify-content: center;
+  /* Center vertically */
+  align-items: center;
+  /* Center horizontally */
+  text-align: center;
+  /* Ensures text alignment is centered for all text */
+  width: 100vw;
+  /* Full viewport width */
+  height: 100vh;
+  /* Full viewport height */
+  color: white;
+  /* Default text color for all contained text */
+}
+
+.text-container h1 {
+  font-size: 80px;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-image: url("Assets/ekgz.png");
+  background-size: auto 75%;
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-animate 24s linear infinite;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: red;
+  margin-bottom: 20px;
+  /* Add space between h1 and h2 */
+}
+
+h2 {
+  font-size: 40px;
+  color: white;
+  padding: 0;
+  /* Reset any padding if inherited */
+  margin: 0;
+  /* Ensure no additional space unless desired */
+  text-align: center;
+  /* Ensures alignment is centered */
+}
+
+
+
+
+
+@keyframes animate {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes text-animate {
+  from {
+    background-position: 0 75%;
+  }
+
+  to {
+    background-position: 100% 75%;
+  }
+}
+
+
+.navbar {
+  border-bottom: .01px solid white;
+  padding-bottom: -30%;
+}
+
+.overview {
+  position: relative;
+  color: white;
+  /* Text color */
+
+}
+
+.overview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  /* Adjust this value for different opacity levels */
+  z-index: -1;
+  background-image: url("Assets/backg.jpg");
+  border-top: darkred solid .5px;
+}
+
+.overview h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 4rem;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  /* Reset any padding if inherited */
+  margin: 0;
+  /* Ensure no additional space unless desired */
+  text-align: center;
+  /* Ensures alignment is centered */
+  padding-top: 2%;
+  padding-bottom: 0;
+}
+
+.overview .p {
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  /* Reset any padding if inherited */
+  margin: 0;
+  /* Ensures alignment is centered */
+  padding: 10%;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  font-weight: bold;
+  line-height: 150%;
+}
+
+
+.overview br {
+  padding: 5%;
+  margin: 5%;
+}
+
+.overview .textbox {
+  width: 77vw;
+  justify-content: center;
+  /* Centers text horizontally */
+}
+
+/* Targets the scrollbar itself */
+::-webkit-scrollbar {
+  width: 12px;
+  /* width of the vertical scrollbar */
+  height: calc(100%-100px);
+  /* height of the horizontal scrollbar */
+}
+
+/* Targets the track of the scrollbar */
+::-webkit-scrollbar-track {
+  background: black;
+  /* light grey background for the track */
+  border-radius: 10px;
+  /* rounded corners for the track */
+}
+
+/* Targets the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: darkred;
+  /* dark grey for the thumb */
+  border-radius: 10px;
+  /* rounded corners for the thumb */
+}
+
+/* Changes the thumb color on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+  /* darker grey for the thumb on hover */
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.loading-screen img {
+  width: 15vw;  // This will make the image width 50% of the viewport width
+  height: auto; // Keeps the aspect ratio intact
 }
